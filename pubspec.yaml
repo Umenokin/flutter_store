@@ -1,0 +1,19 @@
+name: flutter_store
+description: Simple state management for Flutter
+version: 1.0.0
+author: Slava Olenin <umenokin@gmail.com>
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
