@@ -1,6 +1,6 @@
 name: flutter_store
-description: Simple state management for Flutter
-version: 1.0.0
+description: flutter_stores is simple state management for Flutter inspired by Flutter itself. It is clean and simple state management solution without any boilerplate.
+version: 1.0.0+1
 author: Slava Olenin <umenokin@gmail.com>
 homepage: https://github.com/Umenokin/flutter_store
 
