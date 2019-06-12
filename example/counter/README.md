@@ -1,1 +1,0 @@
-The standard Flutter example updated use the `Store` instead of `StatefulWidget`.
