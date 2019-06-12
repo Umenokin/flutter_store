@@ -86,5 +86,10 @@ void main() {
       await tester.pump();
       expect(counter.callCount, equals(2));
     });
+
+    testWidgets('The Provider should throw the exception, if no store was provided', (tester) async {
+      await tester.pumpWidget(TestWidget());
+      expect(tester.takeException(), isInstanceOf<ProviderNotFoundError>());
+    });
   });
 }
