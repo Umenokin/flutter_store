@@ -14,17 +14,17 @@ class Provider<T extends Store> extends StatefulWidget {
     Key key,
     @required this.store,
     @required this.child,
-  }) :
-      assert(store != null),
-      assert(child != null),
-      super(key: key);
+  })  : assert(store != null),
+        assert(child != null),
+        super(key: key);
 
   @override
   _ProviderState<T> createState() => _ProviderState<T>();
 
   static T of<T extends Store>(BuildContext context) {
     final type = _typeOf<_InheritedProvider<T>>();
-    final _InheritedProvider<T> provider = context.inheritFromWidgetOfExactType(type);
+    final _InheritedProvider<T> provider =
+        context.inheritFromWidgetOfExactType(type);
 
     if (provider == null) {
       throw ProviderNotFoundError(T, context.widget.runtimeType);
@@ -56,7 +56,7 @@ class _ProviderState<T extends Store> extends State<Provider> {
   }
 
   _listener() {
-    this.setState(() =>{});
+    this.setState(() {});
   }
 }
 
@@ -67,10 +67,9 @@ class _InheritedProvider<T extends Store> extends InheritedWidget {
     Key key,
     @required this.store,
     @required Widget child,
-  }) :
-      assert(child != null),
-      assert(store != null),
-      super(key: key, child: child);
+  })  : assert(child != null),
+        assert(store != null),
+        super(key: key, child: child);
 
   @override
   bool updateShouldNotify(_InheritedProvider<T> oldWidget) {
@@ -89,7 +88,7 @@ class ProviderNotFoundError extends Error {
   ProviderNotFoundError(
     this.valueType,
     this.widgetType,
-    );
+  );
 
   @override
   String toString() {

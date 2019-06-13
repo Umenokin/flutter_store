@@ -13,7 +13,7 @@ class _CacheHolder<T> {
 }
 
 mixin Cache on Store {
-  final Map<Function, _CacheHolder> _cacheHolders = Map<Function, _CacheHolder>();
+  final _cacheHolders = Map<Function, _CacheHolder>();
 
   storeDidUpdate() {
     super.storeDidUpdate();
