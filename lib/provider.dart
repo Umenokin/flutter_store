@@ -6,8 +6,11 @@ import './store.dart';
 /// Returns the type [T].
 Type _typeOf<T>() => T;
 
+/// The Provider widget which will pass our Store down the Widget tree.
 class Provider<T extends Store> extends StatefulWidget {
+  /// The reference to our store class.
   final T store;
+  /// Child widget which will be able to inherit our store. It could the whole application tree or small set of widgets
   final Widget child;
 
   Provider({
@@ -21,6 +24,24 @@ class Provider<T extends Store> extends StatefulWidget {
   @override
   _ProviderState<T> createState() => _ProviderState<T>();
 
+  /// Give access to our store anywhere in the widget tree
+  ///
+  ///```dart
+  /// class _Counter extends Store {
+  ///   int _value = 0;
+  ///   get value => _value;
+  ///
+  ///  void increment() => setState(() {
+  ///    _value += 1;
+  ///   });
+  /// }
+  ///
+  /// @override
+  /// Widget build(BuildContext context) {
+  ///   final counter = Provider.of<_Counter>(context);
+  ///   return Text('${counter.value}');
+  /// }
+  ///```
   static T of<T extends Store>(BuildContext context) {
     final type = _typeOf<_InheritedProvider<T>>();
     final _InheritedProvider<T> provider =
@@ -34,6 +55,7 @@ class Provider<T extends Store> extends StatefulWidget {
   }
 }
 
+/// Provider's state. This class is responsible for listening the store's changes and calling its own [setState]
 class _ProviderState<T extends Store> extends State<Provider> {
   @override
   void initState() {
@@ -60,6 +82,7 @@ class _ProviderState<T extends Store> extends State<Provider> {
   }
 }
 
+/// Inherited widget which would be used to pass the store to the target component.
 class _InheritedProvider<T extends Store> extends InheritedWidget {
   final T store;
 
