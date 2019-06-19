@@ -10,6 +10,7 @@ Type _typeOf<T>() => T;
 class Provider<T extends Store> extends StatefulWidget {
   /// The reference to our store class.
   final T store;
+
   /// Child widget which will be able to inherit our store. It could the whole application tree or small set of widgets
   final Widget child;
 
