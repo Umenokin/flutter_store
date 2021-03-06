@@ -46,7 +46,7 @@ class Provider<T extends Store> extends StatefulWidget {
   static T of<T extends Store>(BuildContext context) {
     final type = _typeOf<_InheritedProvider<T>>();
     final _InheritedProvider<T> provider =
-        context.inheritFromWidgetOfExactType(type);
+        context.dependOnInheritedWidgetOfExactType(aspect: type);
 
     if (provider == null) {
       throw ProviderNotFoundError(T, context.widget.runtimeType);
